@@ -1,14 +1,8 @@
-# Build Keycloak docker
-
-```docker
-docker build -t keycloak:latest .
-```
-
 # Start Keycloak
 From a terminal start Keycloak with the following command:
 
 ```docker
-docker run -d -p 8080:8080  -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin keycloak:latest
+docker run -d -p 8080:8080  -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin keycloak-container:latest
 ```
 
 This will start Keycloak exposed on the local port 8080. It will also create an initial admin user with username admin and password admin.
@@ -105,7 +99,7 @@ Let’s try to secure our first application. First step is to register this appl
 # Login with your app
 Let's now add the basic configuration in your app - let's pretend we have a angular app:
 
-```json
+```
 KeycloakConfig = {
   url: 'http://localhost:8080/auth',
   realm: 'development',
